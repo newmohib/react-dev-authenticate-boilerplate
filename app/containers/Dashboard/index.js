@@ -18,7 +18,6 @@ import makeSelectDashboard from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import PayPalButton from '../PayPal';
 
 export function Dashboard() {
   useInjectReducer({ key: 'dashboard', reducer });
@@ -79,8 +78,7 @@ export function Dashboard() {
       value_d: 'ref004_D',
     },
   ];
-  // https://sandbox.sslcommerz.com/validator/api/merchantTransIDvalidationAPI.php?tran_id=59C2A4F6432F8&store_id=brain5d91a58f56caf&store_passwd=brain5d91a58f56caf@ssl&format=json
-  return (
+   return (
     <div>
       <Helmet>
         <title>Dashboard</title>
@@ -90,46 +88,11 @@ export function Dashboard() {
       <div class="container">
       <div class="row">
           <div class="col-12">
-              <h1 class="mt-5">Sticky footer</h1>
-              <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-              <p>Use <a href="/docs/4.4/examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p>
+              <h1 class="mt-5">Deshbord</h1>
+              <p class="lead">Pin a Deshbord to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
           </div>
       </div>
   </div>
-      {/* <div
-        className="container form-wrapper"
-        style={{ height: 'calc(100vh - 65px)' }}
-      >
-        <div className="row justify-content-center h-100">
-          <div className="col-10 col-lg-6 col-md-8 col-sm-10 h-100 d-flex align-items-center">
-            <div className="form-container formStyle">
-              <div className="container">
-                <div className="row justify-content-center">
-                  <div className="col-12">
-                    <h3 className="text-center headerStyle">
-                      <FormattedMessage {...messages.header} />
-                    </h3>
-                    <div className="text-center">
-                      <PayPalButton />
-                      <button
-                        className="your-button-class"
-                        id="sslczPayBtn"
-                        token=""
-                        postdata={paymentData}
-                        order="ABCD1234"
-                        endpoint="https://sandbox.sslcommerz.com/gwprocess/v3/api.php"
-                      >
-                        {' '}
-                        Pay Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

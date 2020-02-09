@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import MaterialTitlePanel from './material_title_panel';
 
 const styles = {
@@ -31,12 +32,15 @@ const SidebarContent = props => {
     : styles.sidebar;
 
   const links = [];
-
+  const githubDeployPath = process.env.GITHUB_DEPLOY_PATH ? process.env.GITHUB_DEPLOY_PATH : '';
   for (let ind = 0; ind < 10; ind++) {
     links.push(
-      <a key={ind} href="#" style={styles.sidebarLink}>
-        Mock menu item {ind}
-      </a>,
+      // <a key={ind} href="#" style={styles.sidebarLink}>
+      //   Mock menu item {ind}
+      // </a>
+      <div className="text-center">
+        <NavLink key={ind} href="#" style={styles.sidebarLink} to={`${githubDeployPath}/dashboard`}> menu item {ind}</NavLink>
+      </div>
     );
   }
 

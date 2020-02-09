@@ -40,10 +40,12 @@ export function Navbar(props) {
           >
             <FontAwesomeIcon icon={faAlignJustify} size="lg" />
           </button>
+          <NavLink className="btn btn-light text-center mx-2 mt-1" to={`${githubDeployPath}/dashboard`}>Home</NavLink>
+          
         </div>
         <div className="float-right">
           <DropdownButton variant="light" id="dropdown-basic" title="User Profiles" className="mr-4">
-            <Dropdown.Item className="text-center" ><NavLink className="text-center text-decoration-none text-dark" to={`${githubDeployPath}/login`}>Sign in</NavLink></Dropdown.Item>
+            <Dropdown.Item className="text-center" ><NavLink className="text-center text-decoration-none text-dark" to={`${githubDeployPath}/`}>Sign in</NavLink></Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item className="text-center" ><NavLink className="text-center text-decoration-none text-dark" to={`${githubDeployPath}/signup`}>Sign Up</NavLink></Dropdown.Item>
             <Dropdown.Divider />

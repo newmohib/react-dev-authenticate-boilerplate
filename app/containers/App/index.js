@@ -14,11 +14,8 @@ import { Switch, Route } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+
 // custom
 import SideBar from 'containers/SideBar/Loadable';
 import Navbar from 'containers/Navbar/Loadable';
@@ -50,17 +47,15 @@ function App(props) {
       <SideBar />
       <main role="main" className="flex-shrink-0">
         <Navbar />
-
         <div className="container">
           <div className="row">
             <div className="col-12">
               <Switch>
-                <Route exact path={`${githubDeployPath}/`} component={Dashboard} />
-                <Route exact path={`${githubDeployPath}/login`} component={Login} />
+                <Route exact path={`${githubDeployPath}/`} component={Login} />
+                <Route exact path={`${githubDeployPath}/dashboard`} component={Dashboard} />
                 <Route exact path={`${githubDeployPath}/logout`} component={Logout} />
                 <Route exact path={`${githubDeployPath}/signup`} component={Signup} />
                 <Route exact path={`${githubDeployPath}/viewUsers`} component={ViewUsers} />
-                <Route path={`${githubDeployPath}/features`} component={FeaturePage} />
                 <Route path={`${githubDeployPath}""`} component={NotFoundPage} />
               </Switch>
             </div>
