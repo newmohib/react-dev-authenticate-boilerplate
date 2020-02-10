@@ -28,7 +28,7 @@ import Logout from 'containers/Logout/Loadable';
 import { getFromStore } from '../../utils/localstorage';
 import { setAuthorizationToken } from './actions';
 import { makeSelectIsAuthorization } from './selectors';
-
+import 'bootstrap/dist/js/bootstrap.bundle';
 function App(props) {
   console.log('root reload');
   const { isAuthorization, setAuthorToken } = props;
@@ -40,7 +40,9 @@ function App(props) {
     }
   }, [isAuthorization]);
 
-  const githubDeployPath = process.env.GITHUB_DEPLOY_PATH ? process.env.GITHUB_DEPLOY_PATH : '';
+  const githubDeployPath = process.env.GITHUB_DEPLOY_PATH
+    ? process.env.GITHUB_DEPLOY_PATH
+    : '';
 
   return (
     <div>
@@ -52,19 +54,36 @@ function App(props) {
             <div className="col-12">
               <Switch>
                 <Route exact path={`${githubDeployPath}/`} component={Login} />
-                <Route exact path={`${githubDeployPath}/dashboard`} component={Dashboard} />
-                <Route exact path={`${githubDeployPath}/logout`} component={Logout} />
-                <Route exact path={`${githubDeployPath}/signup`} component={Signup} />
-                <Route exact path={`${githubDeployPath}/viewUsers`} component={ViewUsers} />
-                <Route path={`${githubDeployPath}""`} component={NotFoundPage} />
+                <Route
+                  exact
+                  path={`${githubDeployPath}/dashboard`}
+                  component={Dashboard}
+                />
+                <Route
+                  exact
+                  path={`${githubDeployPath}/logout`}
+                  component={Logout}
+                />
+                <Route
+                  exact
+                  path={`${githubDeployPath}/signup`}
+                  component={Signup}
+                />
+                <Route
+                  exact
+                  path={`${githubDeployPath}/viewUsers`}
+                  component={ViewUsers}
+                />
+                <Route
+                  path={`${githubDeployPath}""`}
+                  component={NotFoundPage}
+                />
               </Switch>
             </div>
           </div>
         </div>
-
       </main>
       <CustomFooter />
-
     </div>
   );
 }

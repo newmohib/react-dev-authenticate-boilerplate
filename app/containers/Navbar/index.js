@@ -11,10 +11,10 @@ import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { NavLink } from 'react-router-dom';
-import { DropdownButton ,Dropdown } from 'react-bootstrap';
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAlignJustify } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
@@ -28,7 +28,9 @@ export function Navbar(props) {
   useInjectReducer({ key: 'navbar', reducer });
   useInjectSaga({ key: 'navbar', saga });
 
-  const githubDeployPath = process.env.GITHUB_DEPLOY_PATH ? process.env.GITHUB_DEPLOY_PATH : '';
+  const githubDeployPath = process.env.GITHUB_DEPLOY_PATH
+    ? process.env.GITHUB_DEPLOY_PATH
+    : '';
 
   return (
     <div className="shadow bg-white rounded">
@@ -40,17 +42,58 @@ export function Navbar(props) {
           >
             <FontAwesomeIcon icon={faAlignJustify} size="lg" />
           </button>
-          <NavLink className="btn btn-light text-center mx-2 mt-1" to={`${githubDeployPath}/dashboard`}>Home</NavLink>
-          
+          <NavLink
+            className="btn btn-light text-center mx-2 mt-1"
+            to={`${githubDeployPath}/dashboard`}
+          >
+            Home
+          </NavLink>
         </div>
         <div className="float-right">
-          <DropdownButton variant="light" id="dropdown-basic" title="User Profiles" className="mr-4">
-            <Dropdown.Item className="text-center" ><NavLink className="text-center text-decoration-none text-dark" to={`${githubDeployPath}/`}>Sign in</NavLink></Dropdown.Item>
+          {/* <DropdownButton variant="light" id="dropdown-basic" title="User Profiles" className="mr-4">
+            <Dropdown.Item ><NavLink className="text-center text-decoration-none text-dark" to={`${githubDeployPath}/`}>Sign in</NavLink></Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item className="text-center" ><NavLink className="text-center text-decoration-none text-dark" to={`${githubDeployPath}/signup`}>Sign Up</NavLink></Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item className="text-center" ><NavLink className="text-center text-decoration-none text-dark" to={`${githubDeployPath}/logout`}>Logout</NavLink></Dropdown.Item>
-          </DropdownButton>
+          </DropdownButton> */}
+          <div className="dropdown">
+            <button
+              className="btn btn-light dropdown-toggle mr-4"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              User Profiles
+            </button>
+            <div
+              className="dropdown-menu text-center"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <NavLink
+                className="dropdown-item bg-light text-dark"
+                to={`${githubDeployPath}/`}
+              >
+                Sign in
+              </NavLink>
+              <div className="dropdown-divider" />
+              <NavLink
+                className="dropdown-item bg-light text-dark"
+                to={`${githubDeployPath}/signup`}
+              >
+                Sign Up
+              </NavLink>
+              <div className="dropdown-divider" />
+              <NavLink
+                className="dropdown-item bg-light text-dark"
+                to={`${githubDeployPath}/logout`}
+              >
+                Logout
+              </NavLink>
+            </div>
+          </div>
         </div>
       </div>
     </div>

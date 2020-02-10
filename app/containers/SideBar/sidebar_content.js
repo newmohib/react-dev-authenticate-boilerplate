@@ -32,15 +32,25 @@ const SidebarContent = props => {
     : styles.sidebar;
 
   const links = [];
-  const githubDeployPath = process.env.GITHUB_DEPLOY_PATH ? process.env.GITHUB_DEPLOY_PATH : '';
+  const githubDeployPath = process.env.GITHUB_DEPLOY_PATH
+    ? process.env.GITHUB_DEPLOY_PATH
+    : '';
   for (let ind = 0; ind < 10; ind++) {
     links.push(
       // <a key={ind} href="#" style={styles.sidebarLink}>
       //   Mock menu item {ind}
       // </a>
-      <div className="text-center">
-        <NavLink key={ind} href="#" style={styles.sidebarLink} to={`${githubDeployPath}/dashboard`}> menu item {ind}</NavLink>
-      </div>
+      <div key={ind} className="text-center">
+        <NavLink
+          key={ind}
+          href="#"
+          style={styles.sidebarLink}
+          to={`${githubDeployPath}/dashboard`}
+        >
+          {' '}
+          menu item {ind}
+        </NavLink>
+      </div>,
     );
   }
 
